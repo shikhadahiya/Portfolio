@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Shikha Dahiya: product manager in London. Six years of production engineering at Bloomberg and Microsoft, Oxford MBA, co-founder of Credimate.">
-<title>Shikha Dahiya · Product Manager</title>
+<meta name="description" content="Shikha Dahiya: Technical Product Manager in London across fintech, AI and enterprise infrastructure. Oxford MBA, ex-Bloomberg and Microsoft, co-founder of Credimate.">
+<title>Shikha Dahiya · Technical Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap">
@@ -70,29 +70,32 @@ h1 { margin: 0; font-size: clamp(44px, 7vw, 84px); line-height: 1; font-weight: 
 .scene { min-height: 82vh; display: flex; align-items: center; padding-block: 96px; }
 .col { width: 100%; max-width: 560px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
 h2 { margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; font-weight: 800; letter-spacing: -0.02em; color: var(--bright); }
-.rows { display: flex; flex-direction: column; }
-.row { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 4px 20px; padding-block: 14px; border-top: 1px solid var(--line); }
-.row:last-child { border-bottom: 1px solid var(--line); }
-.row .name { color: var(--link); font-weight: 700; }
-.row p { margin: 0; color: #AEB6C2; }
-.row .meta { color: var(--dim); font-size: 13px; }
-.log { display: flex; flex-direction: column; gap: 8px; }
-.log { gap: 14px; }
-.log > div { display: flex; gap: 14px; align-items: baseline; }
 .hash { color: var(--accent); font-variant-numeric: tabular-nums; }
-.when { color: var(--dim); min-width: 140px; font-variant-numeric: tabular-nums; }
 .thesis { margin: 0; font-size: clamp(19px, 2vw, 22px); font-weight: 700; color: var(--bright); }
-.stats { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 6px 28px; font-size: 13px; }
-.stats div { display: flex; gap: 8px; }
-.stats dt { color: var(--accent); }
-.stats dd { margin: 0; color: var(--fg); }
 .sub { margin: 0; color: var(--dim); }
-.row .out { display: block; color: var(--green); font-size: 14px; padding-top: 4px; }
-.row .meta { display: block; padding-top: 2px; }
-.log .desc { color: #AEB6C2; font-size: 14px; }
-.log .tag { color: var(--faint); font-weight: 400; }
 .skills { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 10px 16px; align-items: start; }
 .skills .k { color: var(--link); padding-top: 3px; }
+.place { color: var(--dim); margin-top: -10px; }
+.stats { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 12px 36px; }
+.stats div { display: flex; flex-direction: column; }
+.stats dt { color: var(--accent); font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.stats dd { margin: 0; color: var(--dim); font-size: 13px; }
+.jobs { display: flex; flex-direction: column; gap: 26px; }
+.job { display: flex; flex-direction: column; gap: 4px; padding-top: 18px; border-top: 1px solid var(--line); }
+.job-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; font-size: 13px; }
+.when { color: var(--bright); font-variant-numeric: tabular-nums; }
+.tag { color: var(--faint); }
+.job h3 { margin: 0; font-size: 18px; line-height: 1.4; color: var(--bright); font-weight: 700; text-wrap: balance; }
+.job h3 .at { color: var(--link); font-weight: 500; }
+.where { color: var(--dim); font-size: 13px; }
+.diff { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.diff li { position: relative; padding-left: 20px; color: #AEB6C2; font-size: 14px; line-height: 1.6; }
+.diff li::before { content: '+'; position: absolute; left: 0; color: var(--green); }
+.diff b { color: var(--bright); font-weight: 700; }
+.ledger { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 14px 20px; }
+.ledger .yr { color: var(--accent); font-size: 14px; font-variant-numeric: tabular-nums; padding-top: 1px; }
+.ledger p { margin: 0; color: #AEB6C2; font-size: 14px; }
+.ledger b { color: var(--bright); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chips span { border: 1px solid var(--line); border-radius: 4px; padding: 2px 10px; color: var(--green); font-size: 14px; }
 .kv { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 8px 20px; }
@@ -109,9 +112,11 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   .face-col { order: -1; }
   #face-anchor { max-width: 380px; }
   .scene { min-height: 76vh; padding-block: 64px; }
+  .ledger { grid-template-columns: minmax(0, 1fr); gap: 2px 0; }
+  .ledger p { padding-bottom: 12px; }
+  .skills { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .col { background: var(--veil); border: 1px solid var(--line); border-radius: 8px; padding: 20px; box-sizing: border-box; }
-  .row { grid-template-columns: minmax(0, 1fr); }
-}
+  }
 @media (prefers-reduced-motion: reduce) {
   .cursor { animation: none; }
 }
@@ -127,8 +132,9 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
 <header class="bar">
   <span>shikha@portfolio: ~</span>
   <nav aria-label="Sections">
-    <a href="#work">work</a>
-    <a href="#career">career</a>
+    <a href="#experience">experience</a>
+    <a href="#education">education</a>
+    <a href="#beyond">beyond work</a>
     <a href="#contact">contact</a>
   </nav>
 </header>
@@ -137,17 +143,18 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   <div class="hero-text">
     <div class="prompt"><b>~</b> $ whoami</div>
     <h1>Shikha Dahiya</h1>
-    <div class="role">Product Manager · Oxford MBA · London</div>
-    <p class="thesis">I built things. Now I decide what to build.</p>
-    <p class="lede">Six years shipping production systems at Bloomberg and Microsoft, across order management, distributed databases and search infrastructure. Now I bring that engineering depth to product strategy, backed by an Oxford MBA and a fintech startup I co-founded.</p>
+    <div class="role">Technical Product Manager · Fintech, AI &amp; Enterprise Infrastructure</div>
+    <div class="place">Oxford MBA · London, UK</div>
+    <p class="thesis">I am not transitioning into product management. I have been doing it.</p>
+    <p class="lede">For six years at Bloomberg and Microsoft I worked with a product mindset: finding customer problems, building the business case, aligning stakeholders and shipping measurable outcomes. My Oxford MBA formalised and broadened those skills.</p>
     <dl class="stats">
-      <div><dt>uptime</dt><dd>6 yrs in production engineering</dd></div>
-      <div><dt>migrated</dt><dd>75+ traders, zero downtime</dd></div>
-      <div><dt>shipped at</dt><dd>Bloomberg · Microsoft</dd></div>
+      <div><dt>$4M</dt><dd>client revenue enabled</dd></div>
+      <div><dt>$50M/yr</dt><dd>infrastructure savings</dd></div>
+      <div><dt>50%</dt><dd>latency reduction</dd></div>
     </dl>
     <div class="actions">
       <a class="btn primary" href="#contact">./hire-me.sh</a>
-      <a class="btn" href="#work">ls ~/work</a>
+      <a class="btn" href="#experience">git log career</a>
     </div>
   </div>
   <div class="face-col">
@@ -161,47 +168,127 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   <div class="cue">scroll ↓ and watch the bits rearrange</div>
 </section>
 
-<section class="scene" data-scene="1" id="work">
+<section class="scene" data-scene="1" id="experience">
   <div class="col">
-    <div class="prompt"><b>~</b> $ ls ~/work</div>
-    <h2>Projects and impact</h2>
-    <p class="sub">From engineering achievements to product thinking.</p>
-    <div class="rows">
-      <div class="row"><span class="name">credimate/</span><div><p>Co-founded an informal lending platform after finding a trust gap in India's ₹25 lakh crore informal lending market. Built the UX prototype, defined onboarding flows, and shaped a go-to-market aimed at migrant workers and family lending circles.</p><span class="out">→ Pitch-ready MVP with investor deck and customer journey map</span><span class="meta">Fintech · Co-founder</span></div></div>
-      <div class="row"><span class="name">oms-migration/</span><div><p>Led the end-to-end migration of a trading-critical order management system to Linux, coordinating infrastructure, QA and trading desks. No downtime, no data loss, shipped on time.</p><span class="out">→ 75+ traders uninterrupted across cutover; a new baseline for OMS reliability</span><span class="meta">Infrastructure · Bloomberg LP</span></div></div>
-      <div class="row"><span class="name">capacity-watch/</span><div><p>Flagged the lack of proactive capacity planning as a systemic risk and championed a monitoring strategy that moved the team from reacting to incidents to planning ahead.</p><span class="out">→ Adopted across the organisation; changed how the team thinks about scale</span><span class="meta">Platform strategy · Bloomberg LP</span></div></div>
-      <div class="row"><span class="name">stress-test/</span><div><p>Ported core components to asyncio and built a stress-testing framework that simulates realistic trading load, replacing ad hoc QA checks with data-driven release confidence.</p><span class="out">→ Safe, frequent releases and a higher quality bar</span><span class="meta">Engineering · PM · Bloomberg LP</span></div></div>
-      <div class="row"><span class="name">cosmos-bing/</span><div><p>Worked across globally distributed data (Cosmos DB), cloud infrastructure (Azure) and search relevance (Bing): consistency trade-offs, data modelling at scale, and product-driven feature iteration.</p><span class="out">→ Cross-org exposure to platform strategy and large-scale user-facing systems</span><span class="meta">Platform · Microsoft</span></div></div>
+    <div class="prompt"><b>~</b> $ git log --stat career</div>
+    <h2>Experience</h2>
+    <div class="jobs">
+
+      <article class="job">
+        <div class="job-meta"><span class="hash">e7c1a42</span><span class="when">Jan 2026 – present</span><span class="tag">(HEAD -&gt; main)</span></div>
+        <h3>Co-Founder &amp; Product Manager <span class="at">@ Credimate</span></h3>
+        <div class="where">Oxford, UK</div>
+        <ul class="diff">
+          <li>Ran the full product lifecycle from zero: discovery, user research, MVP definition, UX design, AI architecture and investor pitching.</li>
+          <li>Identified a <b>$250B+</b> underserved market: <b>100M+</b> informal borrowers in India with no digital infrastructure for trust, tracking or repayment.</li>
+          <li>Ran primary user research in India, defined personas, and set an MVP of trust scoring, repayment tracking and relationship tooling, sequenced against regulatory constraints.</li>
+          <li>Designed a mobile-first UX for users with low digital literacy and architected the AI trust-scoring logic and data model.</li>
+          <li>Built the investor case from scratch (pitch deck, executive summary, financial model) and presented it to investors.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-meta"><span class="hash">9b3f0d6</span><span class="when">Mar 2022 – Sep 2025</span></div>
+        <h3>Senior Software Engineer <span class="at">@ Bloomberg LP</span></h3>
+        <div class="where">London, UK</div>
+        <ul class="diff">
+          <li>Scaled OMS order capacity from <b>750 to 2,000</b> concurrent orders, leading a London and New York team, directly enabling a <b>$4M</b> client deal.</li>
+          <li>Shipped the OTE UI automation framework across three offices, cutting manual QA dependency from <b>100% to 5%</b>; adopted org-wide.</li>
+          <li>Delivered a cumulative <b>50%</b> latency reduction and <b>27%</b> faster enrichment and validation across the OMS.</li>
+          <li>Defined the OMS capacity measurement framework, aligning <b>60–70</b> engineering leaders at an org-wide summit.</li>
+          <li>Product and technical authority for the PM Cash Ladder integration across 3–4 teams in London and New York.</li>
+          <li>Co-created "A Day in the Life of an AIM Client", a trading simulation now run twice a year and part of new-hire onboarding.</li>
+          <li>Ported Bloomberg's most-used internal Python library to asyncio, removing a performance ceiling for thousands of engineers.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-meta"><span class="hash">4d82c1e</span><span class="when">Jan 2021 – Mar 2022</span></div>
+        <h3>Software Performance Engineer <span class="at">@ Microsoft, Cosmos DB &amp; Azure</span></h3>
+        <div class="where">Hyderabad, India</div>
+        <ul class="diff">
+          <li>Delivered a network configuration for a pre-release Azure API that saves <b>$50M</b> a year.</li>
+          <li>Owned the Cosmos DB performance evaluation pipeline, protecting the <b>10ms</b> latency SLA that set the product apart.</li>
+          <li>Designed scalability experiments for new API releases, pairing automated benchmarks with statistical analysis.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-meta"><span class="hash">2a6e93b</span><span class="when">Jun 2019 – Jan 2021</span></div>
+        <h3>Software Engineer <span class="at">@ Microsoft, Bing Search</span></h3>
+        <div class="where">Hyderabad, India</div>
+        <ul class="diff">
+          <li>Co-designed the enterprise search experience for Microsoft Search: acronyms, bookmarks and floor plans.</li>
+          <li>Honoree Mention at Microsoft Hackathon 2020, out of <b>7,000</b> projects, for an inclusive name-pronunciation feature.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-meta"><span class="hash">0f1b5c7</span><span class="when">Jun – Jul 2018</span></div>
+        <h3>Data Science Intern <span class="at">@ Microsoft, Bing Local</span></h3>
+        <div class="where">Hyderabad, India</div>
+        <ul class="diff">
+          <li>Built an ML geolocation-correction algorithm across <b>~1.2M</b> locations at <b>97.3%</b> precision; earned a pre-placement offer.</li>
+        </ul>
+      </article>
+
     </div>
   </div>
 </section>
 
-<section class="scene" data-scene="2" id="career">
+<section class="scene" data-scene="2" id="education">
   <div class="col">
-    <div class="prompt"><b>~</b> $ git log --oneline career</div>
-    <h2>Engineering depth, seen through a product eye</h2>
-    <div class="log">
-      <div><span class="hash">a3f9c21</span><span><b>Product Manager</b> <span class="tag">(HEAD -&gt; next)</span><br><span class="desc">Open to PM roles in London. Fintech preferred.</span></span></div>
-      <div><span class="hash">7be04d8</span><span><b>MBA</b>, Saïd Business School, University of Oxford<br><span class="desc">Fintech, Financial Trading, Entrepreneurial Finance and Strategic Leadership, including a £100m paper portfolio simulation and a startup valuation for Mintlify's Series B.</span></span></div>
-      <div><span class="hash">c41e0b9</span><span><b>Co-founder</b>, Credimate<br><span class="desc">The founder: full ownership from user insight to roadmap.</span></span></div>
-      <div><span class="hash">19c6e5a</span><span><b>Engineering</b>, Bloomberg LP<br><span class="desc">The systems thinker: order management, stress testing and capacity planning.</span></span></div>
-      <div><span class="hash">0d2f7a1</span><span><b>Engineering</b>, Microsoft<br><span class="desc">The platform builder: Cosmos DB, Azure and Bing Search.</span></span></div>
+    <div class="prompt"><b>~</b> $ cat education.md</div>
+    <h2>Education</h2>
+    <div class="jobs">
+      <article class="job">
+        <div class="job-meta"><span class="when">2025 – 2026</span><span class="where">Oxford, UK</span></div>
+        <h3>MBA <span class="at">@ Saïd Business School, University of Oxford</span></h3>
+        <ul class="diff">
+          <li>Focused on fintech and product leadership: FinTech, AI in Finance, and the Entrepreneurship Project that became Credimate.</li>
+          <li>Managed a <b>£100M</b> paper portfolio in Financial Market Trading; pitched a <b>£5M</b> investment in Mintlify in Entrepreneurial Finance.</li>
+          <li>Grenoble innovation immersion, VivaTech Paris, and company visits to Stripe, Wise and Barclays.</li>
+        </ul>
+      </article>
+      <article class="job">
+        <div class="job-meta"><span class="when">2015 – 2019</span><span class="where">Delhi, India</span></div>
+        <h3>B.Tech, Computer Engineering <span class="at">@ Delhi Technological University</span></h3>
+        <ul class="diff"><li>CGPA <b>8.4/10</b></li></ul>
+      </article>
     </div>
     <div class="prompt" style="padding-top: 12px;"><b>~</b> $ cat skills.json</div>
     <div class="skills">
-      <span class="k">product</span><div class="chips"><span>Roadmapping</span><span>User research</span><span>OKRs</span><span>Prioritisation</span><span>Stakeholder mgmt</span></div>
-      <span class="k">technical</span><div class="chips"><span>Python</span><span>Distributed systems</span><span>APIs</span><span>Azure</span><span>System design</span></div>
-      <span class="k">finance</span><div class="chips"><span>OMS / trading systems</span><span>Fintech regulation</span><span>Quant modelling</span><span>VC valuation</span></div>
-      <span class="k">leadership</span><div class="chips"><span>Cross-functional delivery</span><span>Founding team</span><span>Oxford tutoring</span><span>Public speaking</span></div>
+      <span class="k">product</span><div class="chips"><span>Roadmapping</span><span>PRDs</span><span>Prioritisation (RICE, MoSCoW)</span><span>Discovery</span><span>Go-to-market</span><span>A/B testing</span><span>OKRs</span></div>
+      <span class="k">data</span><div class="chips"><span>SQL</span><span>KQL</span><span>Amplitude</span><span>Mixpanel</span><span>Metrics &amp; north stars</span><span>Experiment design</span></div>
+      <span class="k">delivery</span><div class="chips"><span>Cross-functional leadership</span><span>Scrum Master</span><span>Jira</span><span>Confluence</span><span>Executive communication</span></div>
+      <span class="k">domain</span><div class="chips"><span>Order management systems</span><span>Financial data infrastructure</span><span>Payments</span><span>Fintech regulation</span><span>Enterprise search</span><span>AI systems</span></div>
+      <span class="k">technical</span><div class="chips"><span>Python</span><span>C++</span><span>REST APIs</span><span>Distributed systems</span><span>Azure</span><span>React Native</span></div>
+      <span class="k">research</span><div class="chips"><span>User research</span><span>Journey mapping</span><span>Wireframing</span><span>Jobs-to-be-done</span><span>Usability testing</span></div>
     </div>
   </div>
 </section>
 
-<section class="scene" data-scene="3" id="contact">
+<section class="scene" data-scene="3" id="beyond">
+  <div class="col">
+    <div class="prompt"><b>~</b> $ ls ~/beyond-work</div>
+    <h2>Leadership and volunteering</h2>
+    <div class="ledger">
+      <span class="yr">2026</span><p><b>Postgraduate Tutor, OxNet Access Programme</b>, Pembroke College, Oxford. Designed and gave "From Silicon to Sentience", an AI literacy lecture to ~100 Year 12 students from UK state schools, and led two tutorials.</p>
+      <span class="yr">2025</span><p><b>Recognised on the Tech Women Celebration list.</b></p>
+      <span class="yr">2022 – 2025</span><p><b>Founder &amp; Lead, WAIM Mentorship &amp; Leadership Pillar</b> at Bloomberg. Built programmes such as the 90-Day Growth Challenge and Speed Mentorship for 100+ women across London and New York.</p>
+      <span class="yr">2023</span><p><b>Mentor, Bloomberg Women in Tech</b>, guiding a college graduate through a structured career programme.</p>
+      <span class="yr">2022</span><p><b>Galapagos Conservation Volunteer</b>, ZSL London Zoo.</p>
+      <span class="yr">2021</span><p><b>Mentor, Microsoft Engage</b>, mentoring and evaluating six interns.</p>
+      <span class="yr">2020 – 2021</span><p><b>Mentor, Intern4Afrika</b>, supporting software engineering interns from Ethiopia and Lebanon.</p>
+    </div>
+  </div>
+</section>
+
+<section class="scene" data-scene="4" id="contact">
   <div class="col">
     <div class="prompt"><b>~</b> $ contact --all</div>
     <h2>Say hello</h2>
-    <p class="sub">Open to PM roles in London. Fintech preferred.</p>
+    <p class="sub">Open to product roles in London across fintech, AI and enterprise infrastructure.</p>
     <div class="kv">
       <span class="k">email</span><span class="v" id="email">shikhadahiya1997@gmail.com</span>
       <span class="k">linkedin</span><a href="https://linkedin.com/in/shikhadahiya" style="justify-self: start;">linkedin.com/in/shikhadahiya</a>
@@ -212,7 +299,7 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   </div>
 </section>
 
-<footer>© 2026 Shikha Dahiya · Oxford MBA · Bloomberg · Microsoft · Credimate. Every glyph behind this page is a 0 or a 1.</footer>
+<footer>© 2026 Shikha Dahiya. Every glyph behind this page is a 0 or a 1.</footer>
 </div>
 </main>
 
@@ -442,7 +529,8 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     buildHero();
     scenes[1] = sampleScene(textShape('</>', 0.34), b.side, sideStrength);
     scenes[2] = sampleScene(textShape('{ }', 0.42), b.side, sideStrength);
-    scenes[3] = sampleScene(textShape('sd', 0.6), b.side, sideStrength);
+    scenes[3] = sampleScene(textShape('<3', 0.5), b.side, sideStrength);
+    scenes[4] = sampleScene(textShape('sd', 0.6), b.side, sideStrength);
     measureCenters();
 
     if (firstBuild) {
