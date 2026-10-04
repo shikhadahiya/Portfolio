@@ -61,8 +61,6 @@ h1 { margin: 0; font-size: clamp(44px, 7vw, 84px); line-height: 1; font-weight: 
 .btn.primary:hover { color: var(--bg); filter: brightness(1.08); }
 .face-col { display: flex; flex-direction: column; align-items: center; gap: 14px; min-width: 0; }
 #face-anchor { width: 100%; max-width: 560px; aspect-ratio: 1; border-radius: 8px; transition: box-shadow .2s; }
-.face-meta { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 12px; font-size: 13px; color: var(--dim); text-align: center; }
-.face-meta .btn { min-height: 36px; padding: 0 12px; font-size: 13px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .cue { grid-column: 1 / -1; font-size: 13px; color: var(--faint); }
 
@@ -80,14 +78,8 @@ h2 { margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; font-weight
 .stats div { display: flex; flex-direction: column; }
 .stats dt { color: var(--accent); font-size: 24px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.2; font-variant-numeric: tabular-nums; }
 .stats dd { margin: 0; color: var(--dim); font-size: 13px; }
-.jobs { display: flex; flex-direction: column; gap: 26px; }
-.job { display: flex; flex-direction: column; gap: 4px; padding-top: 18px; border-top: 1px solid var(--line); }
-.job-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 14px; font-size: 13px; }
 .when { color: var(--bright); font-variant-numeric: tabular-nums; }
 .tag { color: var(--faint); }
-.job h3 { margin: 0; font-size: 18px; line-height: 1.4; color: var(--bright); font-weight: 700; text-wrap: balance; }
-.job h3 .at { color: var(--link); font-weight: 500; }
-.where { color: var(--dim); font-size: 13px; }
 .diff { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
 .diff li { position: relative; padding-left: 20px; color: #AEB6C2; font-size: 14px; line-height: 1.6; }
 .diff li::before { content: '+'; position: absolute; left: 0; color: var(--green); }
@@ -96,6 +88,51 @@ h2 { margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; font-weight
 .ledger .yr { color: var(--accent); font-size: 14px; font-variant-numeric: tabular-nums; padding-top: 1px; }
 .ledger p { margin: 0; color: #AEB6C2; font-size: 14px; }
 .ledger b { color: var(--bright); }
+.identity { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.keywords { margin: 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: 4px 0; font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--bright); }
+.keywords li + li::before { content: '/'; color: var(--accent); padding: 0 0.9em; letter-spacing: 0; }
+.kw-sub { font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--dim); }
+
+.work { align-items: flex-start; }
+.tabs-wrap { width: 100%; max-width: 720px; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 40px; align-items: start; }
+.tree-col { display: flex; flex-direction: column; gap: 14px; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 32px); }
+.tree { display: flex; flex-direction: column; }
+.tab { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; min-height: 44px; padding: 0 12px 0 0; background: none; border: none; border-radius: 6px; color: var(--dim); font: inherit; font-size: 15px; text-align: left; cursor: pointer; }
+.tab .branch { color: var(--faint); }
+.tab .count { font-size: 12px; color: var(--faint); font-variant-numeric: tabular-nums; }
+.tab:hover { color: var(--bright); }
+.tab[aria-selected="true"] { color: var(--bg); background: var(--accent); font-weight: 700; padding-left: 0; }
+.tab[aria-selected="true"] .branch, .tab[aria-selected="true"] .count { color: var(--bg); }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.panels { min-width: 0; min-height: 560px; }
+.panel { display: flex; flex-direction: column; gap: 14px; outline: none; animation: panel-in .25s ease-out; }
+@keyframes panel-in { from { opacity: 0.4; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.panel h2 { font-size: clamp(24px, 3vw, 32px); }
+.item { border-top: 1px solid var(--line); }
+.item:last-of-type { border-bottom: 1px solid var(--line); }
+.item summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 110px minmax(0, 1fr) 16px; gap: 12px; align-items: baseline; padding-block: 14px; }
+.item summary::-webkit-details-marker { display: none; }
+.item summary::after { content: '+'; color: var(--accent); text-align: right; }
+.item[open] summary::after { content: '−'; }
+.item summary:hover b { color: var(--accent); }
+.item summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.it { display: flex; flex-direction: column; min-width: 0; }
+.it b, .edu b { color: var(--bright); }
+.at { display: block; color: var(--link); font-size: 13px; }
+.when { color: var(--dim); font-size: 13px; font-variant-numeric: tabular-nums; }
+.gist { margin: 0 0 0 122px; color: var(--fg); font-size: 14px; }
+.item .diff { margin: 8px 0 18px 122px; }
+.diff { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+.diff li { position: relative; padding-left: 20px; color: #AEB6C2; font-size: 14px; line-height: 1.6; }
+.diff li::before { content: '+'; position: absolute; left: 0; color: var(--green); }
+.diff b { color: var(--bright); font-weight: 700; }
+.projects { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 12px; }
+.proj { border: 1px solid var(--line); border-radius: 8px; padding: 16px; background: var(--panel); display: flex; flex-direction: column; gap: 6px; }
+.proj .metric { color: var(--accent); font-weight: 800; font-size: 17px; letter-spacing: -0.01em; }
+.proj h3 { margin: 0; color: var(--bright); font-size: 15px; }
+.proj p { margin: 0; color: #AEB6C2; font-size: 13px; line-height: 1.55; }
+.proj .meta { margin-top: auto; padding-top: 4px; color: var(--dim); font-size: 12px; }
+.edu { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 20px 12px; padding-top: 14px; border-top: 1px solid var(--line); }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chips span { border: 1px solid var(--line); border-radius: 4px; padding: 2px 10px; color: var(--green); font-size: 14px; }
 .kv { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 8px 20px; }
@@ -112,13 +149,26 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   .face-col { order: -1; }
   #face-anchor { max-width: 380px; }
   .scene { min-height: 76vh; padding-block: 64px; }
+  .work { min-height: 0; }
+  .skills { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .tabs-wrap { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .tree-col { position: static; }
+  .tree { flex-direction: row; overflow-x: auto; gap: 6px; padding-bottom: 4px; }
+  .tab { grid-template-columns: auto auto; gap: 8px; padding: 0 14px; border: 1px solid var(--line); flex: 0 0 auto; }
+  .tab .branch { display: none; }
+  .tab[aria-selected="true"] { padding-left: 14px; }
+  .panels { background: var(--veil); border: 1px solid var(--line); border-radius: 8px; padding: 16px; min-height: 0; }
+  .item summary { grid-template-columns: minmax(0, 1fr) 16px; }
+  .item summary .when { grid-column: 1 / -1; }
+  .gist, .item .diff { margin-left: 0; }
+  .edu { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   .ledger { grid-template-columns: minmax(0, 1fr); gap: 2px 0; }
   .ledger p { padding-bottom: 12px; }
-  .skills { grid-template-columns: minmax(0, 1fr); gap: 6px; }
   .col { background: var(--veil); border: 1px solid var(--line); border-radius: 8px; padding: 20px; box-sizing: border-box; }
   }
 @media (prefers-reduced-motion: reduce) {
   .cursor { animation: none; }
+  .panel { animation: none; }
 }
 </style>
 </head>
@@ -132,9 +182,9 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
 <header class="bar">
   <span>shikha@portfolio: ~</span>
   <nav aria-label="Sections">
-    <a href="#experience">experience</a>
-    <a href="#education">education</a>
-    <a href="#beyond">beyond work</a>
+    <a href="#work" data-open="experience">experience</a>
+    <a href="#work" data-open="projects">projects</a>
+    <a href="#work" data-open="education">education</a>
     <a href="#contact">contact</a>
   </nav>
 </header>
@@ -144,7 +194,7 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     <div class="prompt"><b>~</b> $ whoami</div>
     <h1>Shikha Dahiya</h1>
     <div class="role">Technical Product Manager · Fintech, AI &amp; Enterprise Infrastructure</div>
-    <div class="place">Oxford MBA · London, UK</div>
+    <div class="place">London, UK</div>
     <p class="thesis">I am not transitioning into product management. I have been doing it.</p>
     <p class="lede">For six years at Bloomberg and Microsoft I worked with a product mindset: finding customer problems, building the business case, aligning stakeholders and shipping measurable outcomes. My Oxford MBA formalised and broadened those skills.</p>
     <dl class="stats">
@@ -154,137 +204,132 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     </dl>
     <div class="actions">
       <a class="btn primary" href="#contact">./hire-me.sh</a>
-      <a class="btn" href="#experience">git log career</a>
+      <a class="btn" href="#work">tree ~/shikha</a>
     </div>
   </div>
   <div class="face-col">
     <div id="face-anchor" aria-label="Portrait of Shikha drawn in binary digits" role="img"></div>
-    <div class="face-meta">
-      <span><span id="bitcount">0</span> bits, one photo</span>
-      <button class="btn" id="glow" type="button" aria-pressed="true">Photo glow: on</button>
-      <button class="btn" id="replay" type="button">Replay</button>
+    <div class="identity">
+      <ul class="keywords" aria-label="Focus areas"><li>Tech</li><li>Product</li><li>AI</li><li>Finance</li></ul>
+      <div class="kw-sub">Oxford MBA</div>
     </div>
   </div>
   <div class="cue">scroll ↓ and watch the bits rearrange</div>
 </section>
 
-<section class="scene" data-scene="1" id="experience">
-  <div class="col">
-    <div class="prompt"><b>~</b> $ git log --stat career</div>
-    <h2>Experience</h2>
-    <div class="jobs">
+<section class="scene work" data-scene="1" id="work">
+  <div class="tabs-wrap">
+    <div class="tree-col">
+      <div class="prompt"><b>~</b> $ tree ~/shikha</div>
+      <div class="tree" role="tablist" aria-orientation="vertical" aria-label="Portfolio sections">
+        <button class="tab" role="tab" type="button" id="tab-experience" data-tab="experience" aria-controls="panel-experience" aria-selected="true" tabindex="0"><span class="branch" aria-hidden="true">├─</span><span class="tname">experience</span><span class="count">5</span></button>
+        <button class="tab" role="tab" type="button" id="tab-projects" data-tab="projects" aria-controls="panel-projects" aria-selected="false" tabindex="-1"><span class="branch" aria-hidden="true">├─</span><span class="tname">projects</span><span class="count">6</span></button>
+        <button class="tab" role="tab" type="button" id="tab-education" data-tab="education" aria-controls="panel-education" aria-selected="false" tabindex="-1"><span class="branch" aria-hidden="true">├─</span><span class="tname">education</span><span class="count">2</span></button>
+        <button class="tab" role="tab" type="button" id="tab-leadership" data-tab="leadership" aria-controls="panel-leadership" aria-selected="false" tabindex="-1"><span class="branch" aria-hidden="true">├─</span><span class="tname">leadership</span><span class="count">6</span></button>
+        <button class="tab" role="tab" type="button" id="tab-skills" data-tab="skills" aria-controls="panel-skills" aria-selected="false" tabindex="-1"><span class="branch" aria-hidden="true">└─</span><span class="tname">skills</span><span class="count">5</span></button>
+      </div>
+    </div>
 
-      <article class="job">
-        <div class="job-meta"><span class="hash">e7c1a42</span><span class="when">Jan 2026 – present</span><span class="tag">(HEAD -&gt; main)</span></div>
-        <h3>Co-Founder &amp; Product Manager <span class="at">@ Credimate</span></h3>
-        <div class="where">Oxford, UK</div>
-        <ul class="diff">
-          <li>Ran the full product lifecycle from zero: discovery, user research, MVP definition, UX design, AI architecture and investor pitching.</li>
-          <li>Identified a <b>$250B+</b> underserved market: <b>100M+</b> informal borrowers in India with no digital infrastructure for trust, tracking or repayment.</li>
-          <li>Ran primary user research in India, defined personas, and set an MVP of trust scoring, repayment tracking and relationship tooling, sequenced against regulatory constraints.</li>
-          <li>Designed a mobile-first UX for users with low digital literacy and architected the AI trust-scoring logic and data model.</li>
-          <li>Built the investor case from scratch (pitch deck, executive summary, financial model) and presented it to investors.</li>
-        </ul>
-      </article>
+    <div class="panels">
+      <div class="panel" role="tabpanel" id="panel-experience" aria-labelledby="tab-experience" tabindex="0">
+        <h2>Experience</h2>
+        <details class="item" open>
+          <summary><span class="when">2026 – now</span><span class="it"><b>Co-Founder &amp; Product Manager</b><span class="at">Credimate · Oxford</span></span></summary>
+          <p class="gist">Building trust infrastructure for informal lending in India, from user research to investor pitch.</p>
+          <ul class="diff">
+            <li>Owned the full product lifecycle from zero: discovery, MVP, UX, AI architecture and fundraising.</li>
+            <li>Sized a <b>$250B+</b> market of <b>100M+</b> borrowers left out of formal credit.</li>
+            <li>Built the pitch deck, executive summary and financial model, and presented to investors.</li>
+          </ul>
+        </details>
+        <details class="item">
+          <summary><span class="when">2022 – 2025</span><span class="it"><b>Senior Software Engineer</b><span class="at">Bloomberg LP · London</span></span></summary>
+          <p class="gist">Order management systems for asset managers, working as the product and technical lead across London and New York.</p>
+          <ul class="diff">
+            <li>Scaled order capacity from <b>750 to 2,000</b> concurrent orders, enabling a <b>$4M</b> client deal.</li>
+            <li>Cut manual QA dependency from <b>100% to 5%</b> with an automation framework adopted org-wide.</li>
+            <li>Delivered a cumulative <b>50%</b> latency reduction across the OMS.</li>
+          </ul>
+        </details>
+        <details class="item">
+          <summary><span class="when">2021 – 2022</span><span class="it"><b>Software Performance Engineer</b><span class="at">Microsoft, Cosmos DB &amp; Azure · Hyderabad</span></span></summary>
+          <p class="gist">Performance and scale for a globally distributed database.</p>
+          <ul class="diff">
+            <li>Delivered a network configuration for a pre-release Azure API that saves <b>$50M</b> a year.</li>
+            <li>Owned the performance pipeline protecting Cosmos DB's <b>10ms</b> latency SLA.</li>
+          </ul>
+        </details>
+        <details class="item">
+          <summary><span class="when">2019 – 2021</span><span class="it"><b>Software Engineer</b><span class="at">Microsoft, Bing Search · Hyderabad</span></span></summary>
+          <p class="gist">Enterprise search for organisations deploying Microsoft Search.</p>
+          <ul class="diff">
+            <li>Co-designed search experiences for acronyms, bookmarks and floor plans.</li>
+            <li>Honoree Mention at Microsoft Hackathon 2020, out of <b>7,000</b> projects.</li>
+          </ul>
+        </details>
+        <details class="item">
+          <summary><span class="when">2018</span><span class="it"><b>Data Science Intern</b><span class="at">Microsoft, Bing Local · Hyderabad</span></span></summary>
+          <ul class="diff">
+            <li>ML geolocation correction across <b>~1.2M</b> locations at <b>97.3%</b> precision; earned a pre-placement offer.</li>
+          </ul>
+        </details>
+      </div>
 
-      <article class="job">
-        <div class="job-meta"><span class="hash">9b3f0d6</span><span class="when">Mar 2022 – Sep 2025</span></div>
-        <h3>Senior Software Engineer <span class="at">@ Bloomberg LP</span></h3>
-        <div class="where">London, UK</div>
-        <ul class="diff">
-          <li>Scaled OMS order capacity from <b>750 to 2,000</b> concurrent orders, leading a London and New York team, directly enabling a <b>$4M</b> client deal.</li>
-          <li>Shipped the OTE UI automation framework across three offices, cutting manual QA dependency from <b>100% to 5%</b>; adopted org-wide.</li>
-          <li>Delivered a cumulative <b>50%</b> latency reduction and <b>27%</b> faster enrichment and validation across the OMS.</li>
-          <li>Defined the OMS capacity measurement framework, aligning <b>60–70</b> engineering leaders at an org-wide summit.</li>
-          <li>Product and technical authority for the PM Cash Ladder integration across 3–4 teams in London and New York.</li>
-          <li>Co-created "A Day in the Life of an AIM Client", a trading simulation now run twice a year and part of new-hire onboarding.</li>
-          <li>Ported Bloomberg's most-used internal Python library to asyncio, removing a performance ceiling for thousands of engineers.</li>
-        </ul>
-      </article>
+      <div class="panel" role="tabpanel" id="panel-projects" aria-labelledby="tab-projects" tabindex="0" hidden>
+        <h2>Projects</h2>
+        <div class="projects">
+          <article class="proj"><div class="metric">$250B+ market</div><h3>Credimate</h3><p>AI trust scoring and repayment tracking for informal lending, designed mobile-first for low digital literacy.</p><div class="meta">Founder · 2026</div></article>
+          <article class="proj"><div class="metric">750 → 2,000 orders</div><h3>OMS capacity scale-up</h3><p>Found the bottleneck blocking enterprise onboarding, built the case and led the fix. Unlocked a $4M client deal.</p><div class="meta">Bloomberg LP</div></article>
+          <article class="proj"><div class="metric">$50M saved a year</div><h3>Azure API network configuration</h3><p>Found scalability issues in a pre-release API and validated a new configuration through experiments.</p><div class="meta">Microsoft Azure</div></article>
+          <article class="proj"><div class="metric">100% → 5% manual QA</div><h3>OTE UI test automation</h3><p>Prioritised which workflows to automate with data and coordinated three offices. Adopted org-wide.</p><div class="meta">Bloomberg LP</div></article>
+          <article class="proj"><div class="metric">−50% latency</div><h3>OMS performance programme</h3><p>Architecture changes and cache optimisations, plus 27% faster enrichment and validation.</p><div class="meta">Bloomberg LP</div></article>
+          <article class="proj"><div class="metric">Run twice a year</div><h3>A Day in the Life of an AIM Client</h3><p>A trading simulation on live Bloomberg screens that teaches engineers how clients work. Now part of onboarding.</p><div class="meta">Bloomberg LP</div></article>
+        </div>
+      </div>
 
-      <article class="job">
-        <div class="job-meta"><span class="hash">4d82c1e</span><span class="when">Jan 2021 – Mar 2022</span></div>
-        <h3>Software Performance Engineer <span class="at">@ Microsoft, Cosmos DB &amp; Azure</span></h3>
-        <div class="where">Hyderabad, India</div>
-        <ul class="diff">
-          <li>Delivered a network configuration for a pre-release Azure API that saves <b>$50M</b> a year.</li>
-          <li>Owned the Cosmos DB performance evaluation pipeline, protecting the <b>10ms</b> latency SLA that set the product apart.</li>
-          <li>Designed scalability experiments for new API releases, pairing automated benchmarks with statistical analysis.</li>
-        </ul>
-      </article>
+      <div class="panel" role="tabpanel" id="panel-education" aria-labelledby="tab-education" tabindex="0" hidden>
+        <h2>Education</h2>
+        <div class="edu">
+          <div class="when">2025 – 2026</div>
+          <div><b>MBA, Saïd Business School</b><span class="at">University of Oxford</span>
+            <ul class="diff">
+              <li>Focus on fintech and product: FinTech, AI in Finance, and the Entrepreneurship Project that became Credimate.</li>
+              <li>Managed a <b>£100M</b> paper portfolio; pitched a <b>£5M</b> investment in Mintlify.</li>
+              <li>Visits to Stripe, Wise and Barclays; VivaTech Paris; Grenoble innovation immersion.</li>
+            </ul>
+          </div>
+          <div class="when">2015 – 2019</div>
+          <div><b>B.Tech, Computer Engineering</b><span class="at">Delhi Technological University · CGPA 8.4/10</span></div>
+        </div>
+      </div>
 
-      <article class="job">
-        <div class="job-meta"><span class="hash">2a6e93b</span><span class="when">Jun 2019 – Jan 2021</span></div>
-        <h3>Software Engineer <span class="at">@ Microsoft, Bing Search</span></h3>
-        <div class="where">Hyderabad, India</div>
-        <ul class="diff">
-          <li>Co-designed the enterprise search experience for Microsoft Search: acronyms, bookmarks and floor plans.</li>
-          <li>Honoree Mention at Microsoft Hackathon 2020, out of <b>7,000</b> projects, for an inclusive name-pronunciation feature.</li>
-        </ul>
-      </article>
+      <div class="panel" role="tabpanel" id="panel-leadership" aria-labelledby="tab-leadership" tabindex="0" hidden>
+        <h2>Leadership</h2>
+        <div class="ledger">
+          <span class="yr">2026</span><p><b>Postgraduate Tutor, OxNet</b>, Pembroke College. Gave an AI literacy lecture to ~100 Year 12 students from UK state schools.</p>
+          <span class="yr">2025</span><p><b>Tech Women Celebration list.</b></p>
+          <span class="yr">2022 – 2025</span><p><b>Founder &amp; Lead, WAIM Mentorship</b> at Bloomberg. Programmes for 100+ women across London and New York.</p>
+          <span class="yr">2023</span><p><b>Mentor, Bloomberg Women in Tech.</b></p>
+          <span class="yr">2021</span><p><b>Mentor, Microsoft Engage</b>, six interns.</p>
+          <span class="yr">2020 – 2021</span><p><b>Mentor, Intern4Afrika</b>, engineering interns from Ethiopia and Lebanon.</p>
+        </div>
+      </div>
 
-      <article class="job">
-        <div class="job-meta"><span class="hash">0f1b5c7</span><span class="when">Jun – Jul 2018</span></div>
-        <h3>Data Science Intern <span class="at">@ Microsoft, Bing Local</span></h3>
-        <div class="where">Hyderabad, India</div>
-        <ul class="diff">
-          <li>Built an ML geolocation-correction algorithm across <b>~1.2M</b> locations at <b>97.3%</b> precision; earned a pre-placement offer.</li>
-        </ul>
-      </article>
-
+      <div class="panel" role="tabpanel" id="panel-skills" aria-labelledby="tab-skills" tabindex="0" hidden>
+        <h2>Skills</h2>
+        <div class="skills">
+          <span class="k">product</span><div class="chips"><span>Roadmapping</span><span>PRDs</span><span>Discovery</span><span>Prioritisation</span><span>Go-to-market</span><span>OKRs</span></div>
+          <span class="k">data</span><div class="chips"><span>SQL</span><span>KQL</span><span>Amplitude</span><span>Mixpanel</span><span>Experiment design</span></div>
+          <span class="k">domain</span><div class="chips"><span>Order management</span><span>Payments</span><span>Fintech regulation</span><span>Enterprise search</span><span>AI systems</span></div>
+          <span class="k">technical</span><div class="chips"><span>Python</span><span>C++</span><span>REST APIs</span><span>Distributed systems</span><span>Azure</span></div>
+          <span class="k">research</span><div class="chips"><span>User research</span><span>Journey mapping</span><span>Jobs-to-be-done</span><span>Usability testing</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="scene" data-scene="2" id="education">
-  <div class="col">
-    <div class="prompt"><b>~</b> $ cat education.md</div>
-    <h2>Education</h2>
-    <div class="jobs">
-      <article class="job">
-        <div class="job-meta"><span class="when">2025 – 2026</span><span class="where">Oxford, UK</span></div>
-        <h3>MBA <span class="at">@ Saïd Business School, University of Oxford</span></h3>
-        <ul class="diff">
-          <li>Focused on fintech and product leadership: FinTech, AI in Finance, and the Entrepreneurship Project that became Credimate.</li>
-          <li>Managed a <b>£100M</b> paper portfolio in Financial Market Trading; pitched a <b>£5M</b> investment in Mintlify in Entrepreneurial Finance.</li>
-          <li>Grenoble innovation immersion, VivaTech Paris, and company visits to Stripe, Wise and Barclays.</li>
-        </ul>
-      </article>
-      <article class="job">
-        <div class="job-meta"><span class="when">2015 – 2019</span><span class="where">Delhi, India</span></div>
-        <h3>B.Tech, Computer Engineering <span class="at">@ Delhi Technological University</span></h3>
-        <ul class="diff"><li>CGPA <b>8.4/10</b></li></ul>
-      </article>
-    </div>
-    <div class="prompt" style="padding-top: 12px;"><b>~</b> $ cat skills.json</div>
-    <div class="skills">
-      <span class="k">product</span><div class="chips"><span>Roadmapping</span><span>PRDs</span><span>Prioritisation (RICE, MoSCoW)</span><span>Discovery</span><span>Go-to-market</span><span>A/B testing</span><span>OKRs</span></div>
-      <span class="k">data</span><div class="chips"><span>SQL</span><span>KQL</span><span>Amplitude</span><span>Mixpanel</span><span>Metrics &amp; north stars</span><span>Experiment design</span></div>
-      <span class="k">delivery</span><div class="chips"><span>Cross-functional leadership</span><span>Scrum Master</span><span>Jira</span><span>Confluence</span><span>Executive communication</span></div>
-      <span class="k">domain</span><div class="chips"><span>Order management systems</span><span>Financial data infrastructure</span><span>Payments</span><span>Fintech regulation</span><span>Enterprise search</span><span>AI systems</span></div>
-      <span class="k">technical</span><div class="chips"><span>Python</span><span>C++</span><span>REST APIs</span><span>Distributed systems</span><span>Azure</span><span>React Native</span></div>
-      <span class="k">research</span><div class="chips"><span>User research</span><span>Journey mapping</span><span>Wireframing</span><span>Jobs-to-be-done</span><span>Usability testing</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="scene" data-scene="3" id="beyond">
-  <div class="col">
-    <div class="prompt"><b>~</b> $ ls ~/beyond-work</div>
-    <h2>Leadership and volunteering</h2>
-    <div class="ledger">
-      <span class="yr">2026</span><p><b>Postgraduate Tutor, OxNet Access Programme</b>, Pembroke College, Oxford. Designed and gave "From Silicon to Sentience", an AI literacy lecture to ~100 Year 12 students from UK state schools, and led two tutorials.</p>
-      <span class="yr">2025</span><p><b>Recognised on the Tech Women Celebration list.</b></p>
-      <span class="yr">2022 – 2025</span><p><b>Founder &amp; Lead, WAIM Mentorship &amp; Leadership Pillar</b> at Bloomberg. Built programmes such as the 90-Day Growth Challenge and Speed Mentorship for 100+ women across London and New York.</p>
-      <span class="yr">2023</span><p><b>Mentor, Bloomberg Women in Tech</b>, guiding a college graduate through a structured career programme.</p>
-      <span class="yr">2022</span><p><b>Galapagos Conservation Volunteer</b>, ZSL London Zoo.</p>
-      <span class="yr">2021</span><p><b>Mentor, Microsoft Engage</b>, mentoring and evaluating six interns.</p>
-      <span class="yr">2020 – 2021</span><p><b>Mentor, Intern4Afrika</b>, supporting software engineering interns from Ethiopia and Lebanon.</p>
-    </div>
-  </div>
-</section>
-
-<section class="scene" data-scene="4" id="contact">
+<section class="scene" data-scene="2" id="contact">
   <div class="col">
     <div class="prompt"><b>~</b> $ contact --all</div>
     <h2>Say hello</h2>
@@ -322,6 +367,8 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   let photo = null, mouse = { x: -9999, y: -9999 }, introStart = 0;
   let glow = location.hash !== '#bits-only';
   const sceneEls = [...document.querySelectorAll('[data-scene]')];
+  const TAB_SHAPES = [['experience', '</>', 0.34], ['projects', '{ }', 0.42], ['education', 'MBA', 0.3], ['leadership', '<3', 0.5], ['skills', '>_', 0.5]];
+  let tabScenes = {}, activeTab = 'experience';
 
   const rand = (a, b) => a + Math.random() * (b - a);
   const smooth = (e0, e1, x) => { const t = Math.min(1, Math.max(0, (x - e0) / (e1 - e0))); return t * t * (3 - 2 * t); };
@@ -510,7 +557,6 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     heroBox = b.hero;
     scenes[0] = sampleScene(photo ? drawPhoto : drawStandIn, b.hero, 1, false);
     scenes[0].scrolls = true;
-    document.getElementById('bitcount').textContent = scenes[0].count.toLocaleString();
   }
 
   function build() {
@@ -527,10 +573,20 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     const b = boxes();
     const sideStrength = b.desktop ? 0.6 : 0.2;
     buildHero();
-    scenes[1] = sampleScene(textShape('</>', 0.34), b.side, sideStrength);
-    scenes[2] = sampleScene(textShape('{ }', 0.42), b.side, sideStrength);
-    scenes[3] = sampleScene(textShape('<3', 0.5), b.side, sideStrength);
-    scenes[4] = sampleScene(textShape('sd', 0.6), b.side, sideStrength);
+    // The tabs section keeps its shape in the space right of the panels; each tab has its own shape.
+    const tw = document.querySelector('.tabs-wrap').getBoundingClientRect();
+    const room = W - tw.right - 32;
+    let tabBox = b.side, tabStrength = b.desktop ? 0.5 : 0.16;
+    if (b.desktop && room >= 260) {
+      const s = Math.min(room - 16, H * 0.6, 500);
+      tabBox = { x: tw.right + 16 + (room - 16 - s) / 2, y: (H - s) / 2, w: s, h: s };
+    } else if (b.desktop) {
+      tabStrength = 0.16;
+    }
+    tabScenes = {};
+    for (const [key, txt, size] of TAB_SHAPES) tabScenes[key] = sampleScene(textShape(txt, size), tabBox, tabStrength);
+    scenes[1] = tabScenes[activeTab];
+    scenes[2] = sampleScene(textShape('sd', 0.6), b.side, sideStrength);
     measureCenters();
 
     if (firstBuild) {
@@ -542,16 +598,6 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
       }));
     } else {
       for (const p of particles) { p.fx = Math.random() * W; p.fy = Math.random() * H; }
-    }
-  }
-
-  function scatter() {
-    introStart = performance.now();
-    for (const p of particles) {
-      p.x = rand(-W * 0.2, W * 1.2);
-      p.y = rand(-H * 0.2, H * 1.2);
-      p.vx = p.vy = 0;
-      p.a = 0;
     }
   }
 
@@ -614,11 +660,6 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     requestAnimationFrame(frame);
   }
 
-  const glowBtn = document.getElementById('glow');
-  const syncGlow = () => { glowBtn.textContent = 'Photo glow: ' + (glow ? 'on' : 'off'); glowBtn.setAttribute('aria-pressed', String(glow)); };
-  glowBtn.addEventListener('click', () => { glow = !glow; syncGlow(); });
-  syncGlow();
-  document.getElementById('replay').addEventListener('click', () => { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); scatter(); });
 
   document.getElementById('copy').addEventListener('click', (e) => {
     const btn = e.currentTarget, text = document.getElementById('email').textContent;
@@ -630,6 +671,36 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
       done('Selected, press Ctrl+C');
     }
   });
+
+  // Tabs ---------------------------------------------------------------
+  const tabs = [...document.querySelectorAll('[role="tab"]')];
+  function selectTab(key, focus) {
+    activeTab = key;
+    for (const t of tabs) {
+      const on = t.dataset.tab === key;
+      t.setAttribute('aria-selected', String(on));
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      if (on && focus) t.focus();
+    }
+    if (tabScenes[key]) scenes[1] = tabScenes[key];
+    measureCenters();
+  }
+  tabs.forEach((t, i) => {
+    t.addEventListener('click', () => selectTab(t.dataset.tab));
+    t.addEventListener('keydown', (e) => {
+      const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+      if (step) { e.preventDefault(); selectTab(tabs[(i + step + tabs.length) % tabs.length].dataset.tab, true); }
+      else if (e.key === 'Home') { e.preventDefault(); selectTab(tabs[0].dataset.tab, true); }
+      else if (e.key === 'End') { e.preventDefault(); selectTab(tabs[tabs.length - 1].dataset.tab, true); }
+    });
+  });
+  document.querySelectorAll('[data-open]').forEach((a) => a.addEventListener('click', () => selectTab(a.dataset.open)));
+  const fromHash = location.hash.slice(1);
+  if (tabs.some((t) => t.dataset.tab === fromHash)) {
+    selectTab(fromHash);
+    document.getElementById('work').scrollIntoView();
+  }
 
   addEventListener('pointermove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
   addEventListener('pointerleave', () => { mouse.x = mouse.y = -9999; });
