@@ -134,6 +134,7 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     <div id="face-anchor" aria-label="Portrait of Shikha drawn in binary digits" role="img"></div>
     <div class="face-meta">
       <span><span id="bitcount">0</span> bits, one photo</span>
+      <button class="btn" id="glow" type="button" aria-pressed="true">Photo glow: on</button>
       <button class="btn" id="replay" type="button">Replay</button>
     </div>
   </div>
@@ -199,6 +200,7 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   let W = 0, H = 0, DPR = 1, N = 0;
   let particles = [], scenes = [], sprites = {}, centers = [];
   let photo = null, mouse = { x: -9999, y: -9999 }, introStart = 0;
+  let glow = location.hash !== '#bits-only';
   const sceneEls = [...document.querySelectorAll('[data-scene]')];
 
   const rand = (a, b) => a + Math.random() * (b - a);
@@ -349,6 +351,26 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     };
   }
 
+  function drawInfinity(x, S) {
+    const gr = x.createLinearGradient(0, 0, S, S);
+    gr.addColorStop(0, '#ffffff');
+    gr.addColorStop(1, '#6a6a6a');
+    x.strokeStyle = gr;
+    x.lineWidth = S * 0.09;
+    x.lineJoin = 'round';
+    const a = S * 0.42;
+    x.beginPath();
+    for (let i = 0; i <= 360; i++) {
+      const t = (i / 360) * Math.PI * 2;
+      const d = 1 + Math.sin(t) ** 2;
+      const px = S / 2 + (a * Math.cos(t)) / d;
+      const py = S / 2 + (a * Math.sin(t) * Math.cos(t)) / d;
+      if (i) x.lineTo(px, py); else x.moveTo(px, py);
+    }
+    x.closePath();
+    x.stroke();
+  }
+
   // Layout ------------------------------------------------------------
   function boxes() {
     const desktop = W >= 860;
@@ -407,7 +429,7 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     buildHero();
     scenes[1] = sampleScene(textShape('</>', 0.34), b.side, sideStrength);
     scenes[2] = sampleScene(textShape('{ }', 0.42), b.side, sideStrength);
-    scenes[3] = sampleScene(textShape('@', 0.9), b.side, sideStrength);
+    scenes[3] = sampleScene(drawInfinity, b.side, sideStrength);
     measureCenters();
 
     if (firstBuild) {
@@ -447,7 +469,7 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
 
     ctx.clearRect(0, 0, W, H);
     // A faint copy of the photo under the bits gives the face its tonal shape; it fades as the face dissolves.
-    if (photo && i0 === 0) {
+    if (photo && glow && i0 === 0) {
       const intro = reduce ? 1 : Math.min(1, (now - introStart) / 1200);
       const hb = heroBox;
       ctx.globalCompositeOperation = 'lighter';
@@ -488,6 +510,10 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
     requestAnimationFrame(frame);
   }
 
+  const glowBtn = document.getElementById('glow');
+  const syncGlow = () => { glowBtn.textContent = 'Photo glow: ' + (glow ? 'on' : 'off'); glowBtn.setAttribute('aria-pressed', String(glow)); };
+  glowBtn.addEventListener('click', () => { glow = !glow; syncGlow(); });
+  syncGlow();
   document.getElementById('replay').addEventListener('click', () => { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); scatter(); });
 
   document.getElementById('copy').addEventListener('click', (e) => {
