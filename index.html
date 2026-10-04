@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Shikha Dahiya, portfolio">
-<title>Binary Portrait</title>
+<meta name="description" content="Shikha Dahiya: product manager in London. Six years of production engineering at Bloomberg and Microsoft, Oxford MBA, co-founder of Credimate.">
+<title>Shikha Dahiya · Product Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&display=swap">
@@ -77,13 +77,27 @@ h2 { margin: 0; font-size: clamp(28px, 4vw, 40px); line-height: 1.1; font-weight
 .row p { margin: 0; color: #AEB6C2; }
 .row .meta { color: var(--dim); font-size: 13px; }
 .log { display: flex; flex-direction: column; gap: 8px; }
-.log div { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.log { gap: 14px; }
+.log > div { display: flex; gap: 14px; align-items: baseline; }
 .hash { color: var(--accent); font-variant-numeric: tabular-nums; }
 .when { color: var(--dim); min-width: 140px; font-variant-numeric: tabular-nums; }
+.thesis { margin: 0; font-size: clamp(19px, 2vw, 22px); font-weight: 700; color: var(--bright); }
+.stats { margin: 4px 0 0; display: flex; flex-wrap: wrap; gap: 6px 28px; font-size: 13px; }
+.stats div { display: flex; gap: 8px; }
+.stats dt { color: var(--accent); }
+.stats dd { margin: 0; color: var(--fg); }
+.sub { margin: 0; color: var(--dim); }
+.row .out { display: block; color: var(--green); font-size: 14px; padding-top: 4px; }
+.row .meta { display: block; padding-top: 2px; }
+.log .desc { color: #AEB6C2; font-size: 14px; }
+.log .tag { color: var(--faint); font-weight: 400; }
+.skills { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 10px 16px; align-items: start; }
+.skills .k { color: var(--link); padding-top: 3px; }
 .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .chips span { border: 1px solid var(--line); border-radius: 4px; padding: 2px 10px; color: var(--green); font-size: 14px; }
 .kv { display: grid; grid-template-columns: 100px minmax(0, 1fr); gap: 8px 20px; }
 .kv .k { color: var(--dim); }
+.kv a { min-width: 0; overflow-wrap: anywhere; }
 .kv .v { color: var(--bright); user-select: all; overflow-wrap: anywhere; }
 .copy { align-self: flex-start; }
 .cursor { display: inline-block; width: 10px; height: 18px; background: var(--accent); vertical-align: -3px; animation: blink 1.1s steps(1) infinite; }
@@ -113,8 +127,8 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
 <header class="bar">
   <span>shikha@portfolio: ~</span>
   <nav aria-label="Sections">
-    <a href="#projects">projects</a>
-    <a href="#experience">experience</a>
+    <a href="#work">work</a>
+    <a href="#career">career</a>
     <a href="#contact">contact</a>
   </nav>
 </header>
@@ -123,11 +137,17 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   <div class="hero-text">
     <div class="prompt"><b>~</b> $ whoami</div>
     <h1>Shikha Dahiya</h1>
-    <div class="role">[Your role] · [City, Country]</div>
-    <p class="lede">I build software people rely on every day. Replace this with two sentences about the problems you like to solve and the team you want to join next.</p>
+    <div class="role">Product Manager · Oxford MBA · London</div>
+    <p class="thesis">I built things. Now I decide what to build.</p>
+    <p class="lede">Six years shipping production systems at Bloomberg and Microsoft, across order management, distributed databases and search infrastructure. Now I bring that engineering depth to product strategy, backed by an Oxford MBA and a fintech startup I co-founded.</p>
+    <dl class="stats">
+      <div><dt>uptime</dt><dd>6 yrs in production engineering</dd></div>
+      <div><dt>migrated</dt><dd>75+ traders, zero downtime</dd></div>
+      <div><dt>shipped at</dt><dd>Bloomberg · Microsoft</dd></div>
+    </dl>
     <div class="actions">
       <a class="btn primary" href="#contact">./hire-me.sh</a>
-      <a class="btn" href="https://github.com/shikhadahiya">github.com/shikhadahiya</a>
+      <a class="btn" href="#work">ls ~/work</a>
     </div>
   </div>
   <div class="face-col">
@@ -141,30 +161,39 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   <div class="cue">scroll ↓ and watch the bits rearrange</div>
 </section>
 
-<section class="scene" data-scene="1" id="projects">
+<section class="scene" data-scene="1" id="work">
   <div class="col">
-    <div class="prompt"><b>~</b> $ ls ~/projects</div>
-    <h2>Things I've built</h2>
+    <div class="prompt"><b>~</b> $ ls ~/work</div>
+    <h2>Projects and impact</h2>
+    <p class="sub">From engineering achievements to product thinking.</p>
     <div class="rows">
-      <div class="row"><span class="name">ledgerline/</span><div><p>Shared expense tracker with offline sync. Edits merge on reconnect instead of overwriting each other.</p><span class="meta">TypeScript · React Native · Postgres</span></div></div>
-      <div class="row"><span class="name">queuekeeper/</span><div><p>Groups failed background jobs by cause so on-call can retry them in one click.</p><span class="meta">Go · Redis · htmx</span></div></div>
-      <div class="row"><span class="name">paper-trail/</span><div><p>CLI that turns a folder of research PDFs into notes you can search.</p><span class="meta">Python · SQLite FTS5</span></div></div>
+      <div class="row"><span class="name">credimate/</span><div><p>Co-founded an informal lending platform after finding a trust gap in India's ₹25 lakh crore informal lending market. Built the UX prototype, defined onboarding flows, and shaped a go-to-market aimed at migrant workers and family lending circles.</p><span class="out">→ Pitch-ready MVP with investor deck and customer journey map</span><span class="meta">Fintech · Co-founder</span></div></div>
+      <div class="row"><span class="name">oms-migration/</span><div><p>Led the end-to-end migration of a trading-critical order management system to Linux, coordinating infrastructure, QA and trading desks. No downtime, no data loss, shipped on time.</p><span class="out">→ 75+ traders uninterrupted across cutover; a new baseline for OMS reliability</span><span class="meta">Infrastructure · Bloomberg LP</span></div></div>
+      <div class="row"><span class="name">capacity-watch/</span><div><p>Flagged the lack of proactive capacity planning as a systemic risk and championed a monitoring strategy that moved the team from reacting to incidents to planning ahead.</p><span class="out">→ Adopted across the organisation; changed how the team thinks about scale</span><span class="meta">Platform strategy · Bloomberg LP</span></div></div>
+      <div class="row"><span class="name">stress-test/</span><div><p>Ported core components to asyncio and built a stress-testing framework that simulates realistic trading load, replacing ad hoc QA checks with data-driven release confidence.</p><span class="out">→ Safe, frequent releases and a higher quality bar</span><span class="meta">Engineering · PM · Bloomberg LP</span></div></div>
+      <div class="row"><span class="name">cosmos-bing/</span><div><p>Worked across globally distributed data (Cosmos DB), cloud infrastructure (Azure) and search relevance (Bing): consistency trade-offs, data modelling at scale, and product-driven feature iteration.</p><span class="out">→ Cross-org exposure to platform strategy and large-scale user-facing systems</span><span class="meta">Platform · Microsoft</span></div></div>
     </div>
   </div>
 </section>
 
-<section class="scene" data-scene="2" id="experience">
+<section class="scene" data-scene="2" id="career">
   <div class="col">
     <div class="prompt"><b>~</b> $ git log --oneline career</div>
-    <h2>Where I've worked</h2>
+    <h2>Engineering depth, seen through a product eye</h2>
     <div class="log">
-      <div><span class="hash">a3f9c21</span><span class="when">[2024] – now</span><span><b>[Role]</b> @ [Company]</span></div>
-      <div><span class="hash">7be04d8</span><span class="when">[2022] – [2024]</span><span><b>[Role]</b> @ [Company]</span></div>
-      <div><span class="hash">19c6e5a</span><span class="when">[2021]</span><span><b>[Internship]</b> @ [Company]</span></div>
-      <div><span class="hash">0000001</span><span class="when">[2019]</span><span><b>Initial commit:</b> [Degree], [University]</span></div>
+      <div><span class="hash">a3f9c21</span><span><b>Product Manager</b> <span class="tag">(HEAD -&gt; next)</span><br><span class="desc">Open to PM roles in London. Fintech preferred.</span></span></div>
+      <div><span class="hash">7be04d8</span><span><b>MBA</b>, Saïd Business School, University of Oxford<br><span class="desc">Fintech, Financial Trading, Entrepreneurial Finance and Strategic Leadership, including a £100m paper portfolio simulation and a startup valuation for Mintlify's Series B.</span></span></div>
+      <div><span class="hash">c41e0b9</span><span><b>Co-founder</b>, Credimate<br><span class="desc">The founder: full ownership from user insight to roadmap.</span></span></div>
+      <div><span class="hash">19c6e5a</span><span><b>Engineering</b>, Bloomberg LP<br><span class="desc">The systems thinker: order management, stress testing and capacity planning.</span></span></div>
+      <div><span class="hash">0d2f7a1</span><span><b>Engineering</b>, Microsoft<br><span class="desc">The platform builder: Cosmos DB, Azure and Bing Search.</span></span></div>
     </div>
-    <div class="prompt" style="padding-top: 12px;"><b>~</b> $ cat stack.json</div>
-    <div class="chips"><span>TypeScript</span><span>Python</span><span>Go</span><span>React</span><span>Node</span><span>Postgres</span><span>Redis</span><span>Docker</span><span>AWS</span></div>
+    <div class="prompt" style="padding-top: 12px;"><b>~</b> $ cat skills.json</div>
+    <div class="skills">
+      <span class="k">product</span><div class="chips"><span>Roadmapping</span><span>User research</span><span>OKRs</span><span>Prioritisation</span><span>Stakeholder mgmt</span></div>
+      <span class="k">technical</span><div class="chips"><span>Python</span><span>Distributed systems</span><span>APIs</span><span>Azure</span><span>System design</span></div>
+      <span class="k">finance</span><div class="chips"><span>OMS / trading systems</span><span>Fintech regulation</span><span>Quant modelling</span><span>VC valuation</span></div>
+      <span class="k">leadership</span><div class="chips"><span>Cross-functional delivery</span><span>Founding team</span><span>Oxford tutoring</span><span>Public speaking</span></div>
+    </div>
   </div>
 </section>
 
@@ -172,17 +201,18 @@ footer { padding-block: 40px 56px; font-size: 13px; color: var(--faint); }
   <div class="col">
     <div class="prompt"><b>~</b> $ contact --all</div>
     <h2>Say hello</h2>
+    <p class="sub">Open to PM roles in London. Fintech preferred.</p>
     <div class="kv">
-      <span class="k">email</span><span class="v" id="email">[you@email.com]</span>
-      <span class="k">github</span><a href="https://github.com/shikhadahiya" style="justify-self: start;">shikhadahiya</a>
-      <span class="k">linkedin</span><span class="v">[linkedin.com/in/your-handle]</span>
+      <span class="k">email</span><span class="v" id="email">shikhadahiya1997@gmail.com</span>
+      <span class="k">linkedin</span><a href="https://linkedin.com/in/shikhadahiya" style="justify-self: start;">linkedin.com/in/shikhadahiya</a>
+      <span class="k">github</span><a href="https://github.com/shikhadahiya" style="justify-self: start;">github.com/shikhadahiya</a>
     </div>
     <button class="btn copy" id="copy" type="button">Copy email</button>
     <div class="prompt"><b>~</b> $ <span class="cursor"></span></div>
   </div>
 </section>
 
-<footer>Background: every glyph is a 0 or a 1, and its brightness comes from the picture it is drawing.</footer>
+<footer>© 2026 Shikha Dahiya · Oxford MBA · Bloomberg · Microsoft · Credimate. Every glyph behind this page is a 0 or a 1.</footer>
 </div>
 </main>
 
